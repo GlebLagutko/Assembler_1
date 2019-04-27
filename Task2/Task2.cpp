@@ -5,17 +5,14 @@ using namespace std;
 
 void SecondTask(int  a, int b)
 {
-	int x;
-
+	float x;
 	__asm
 	{
-		mov eax, 0
-		sub eax, [b]
-
-		mov ebx, [a]
-		idiv ebx
-
-		mov [x],eax	   
+		finit
+		fldz
+		fsub b
+		fdiv a
+		fstp x
 	}
 	wcout << L"Answer : " << x << endl;
 }

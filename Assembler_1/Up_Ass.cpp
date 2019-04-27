@@ -30,9 +30,12 @@ int main()
 {
 	short a;
 	short b;
+	wcout << L"A = ";
 	wcin >> a;
+	wcout << L"B = ";
 	wcin >> b;
 	FirstTask(a, b);
+	
 
 	system("pause");
 }

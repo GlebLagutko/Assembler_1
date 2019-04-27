@@ -3,15 +3,15 @@
 
 using namespace std;
 
-const float S = 2;
-const float Z = 1;
+const double S = -843;
+const double Z = 5;
 
-float SecondTask(float  a, float b)
+double SecondTask(double  a, double b)
 {
-	float x;
+	double x;
 	__asm
 	{
-		finit
+		finit    ; with coprocessor
 		fldz
 		fsub b
 		fdiv a
@@ -21,22 +21,21 @@ float SecondTask(float  a, float b)
 	return x;
 }
 
-void ThirdTask(float x)
+void ThirdTask(double x)
 {
-	float result;
-	float x1;
-	float x2;
+	double result;
 	__asm
 	{
-		finit
-		fldz
+		finit   ; with coprocessor
+
+		fldz    
 		fld S
 		fsub
 		fld Z
 		fmul
 		fld x
 		fadd
-		fld S
+		fld S 
 		fld Z
 		fmul
 		fld x
@@ -52,13 +51,14 @@ void ThirdTask(float x)
 
 int main()
 {
-	float a;
-	float b;
+	double a;
+	double b;
 	wcout << L"A = ";
 	wcin >> a;
 	wcout << L"B = ";
 	wcin >> b;
-	float x = SecondTask(a, b);
+	double x = SecondTask(a, b);
 	ThirdTask(x);
 	system("pause");
+	return 0;
 }
